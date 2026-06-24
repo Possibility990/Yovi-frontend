@@ -1,10 +1,13 @@
 {
   "name": "tracalorie-webpack",
+  "version": "1.0.0",
   "description": "App to track calories and workouts",
+  "private": true,
   "main": "app.js",
   "scripts": {
+    "dev": "webpack serve",
     "build": "webpack",
-    "dev": "webpack serve"
+    "vercel-build": "webpack"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",
