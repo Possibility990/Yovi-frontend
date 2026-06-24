@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Account Type - YOVI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <script type="module" src="./app.js" defer></script>
+    <!-- <style>
+        :root {
+            --primary-color: #10b981;
+            --primary-light: #6ee7b7;
+            --text-main: #1f2937;
+            --text-muted: #6b7280;
+            --border-color: #e5e7eb;
+            --bg-light: #f9fafb;
+            --orange: #f97316;
+            --teal: #14b8a6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-light);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        /* Logo */
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            color: #1a222e;
+        }
+
+        .logo span:last-child {
+            color: var(--orange);
+        }
+
+        /* Progress Bar */
+        .stepper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 48px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 500;
+            color: #d1d5db;
+        }
+
+        .step.active {
+            color: var(--text-main);
+        }
+
+        .step.completed {
+            color: #9ca3af;
+        }
+
+        .step-circle {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #f3f4f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #9ca3af;
+        }
+
+        .step.active .step-circle {
+            background-color: #1a222e;
+            color: white;
+        }
+
+        .step.completed .step-circle {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .step-line {
+            height: 2px;
+            width: 40px;
+            background-color: #e5e7eb;
+        }
+
+        .step-line.completed {
+            background-color: var(--primary-color);
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 800px;
+            margin-bottom: 32px;
+        }
+
+        .card {
+            background: white;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 32px;
+            cursor: pointer;
+            transition: all 0.2s;
+            position: relative;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .card.selected {
+            border-color: var(--primary-color);
+            background-color: #f0fdf4;
+        }
+
+        .badge {
+            position: absolute;
+            top: -12px;
+            left: 24px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 700;
+            color: white;
+            text-transform: uppercase;
+        }
+
+        .badge.popular { background-color: var(--orange); }
+        .badge.entrepreneur { background-color: var(--teal); }
+
+        .card-icon {
+            font-size: 24px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .feature-item svg {
+            color: var(--primary-color);
+            flex-shrink: 0;
+        }
+
+        /* Continue Button */
+        .continue-btn {
+            width: 100%;
+            max-width: 800px;
+            padding: 16px;
+            background-color: var(--primary-light);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color 0.2s;
+            margin-bottom: 16px;
+        }
+
+        .continue-btn.active {
+            background-color: var(--primary-color);
+        }
+
+        .footer-note {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+            .stepper {
+                gap: 8px;
+            }
+            .step-line {
+                width: 20px;
+            }
+            .step span {
+                display: none;
+            }
+        }
+    </style> -->
+<script defer src="bundle.js"></script><link href="main.css" rel="stylesheet"></head>
+<body>
+
+    <div class="logo">
+        <img src="./images/logo.png" alt="">
+    </div>
+
+    <div class="stepper">
+        <div class="step completed">
+            <div class="step-circle">✓</div>
+            <span>Account</span>
+        </div>
+        <div class="step-line completed"></div>
+        <div class="step active">
+            <div class="step-circle">2</div>
+            <span>Account Type</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+            <div class="step-circle">3</div>
+            <span>Profile</span>
+        </div>
+        <div class="step-line"></div>
+        <div class="step">
+            <div class="step-circle">4</div>
+            <span>Done</span>
+        </div>
+    </div>
+
+    <div class="header">
+        <h1>How will you use YOVI?</h1>
+        <p>Choose your account type — you can always add more later.</p>
+    </div>
+
+    <div class="cards-grid">
+        <!-- Buyer -->
+        <div class="card" onclick="selectCard(this)">
+            <span class="badge popular">Most Popular</span>
+            <span class="card-icon">🛒</span>
+            <h3>Buyer</h3>
+            <p>Shop products and discover local services from verified sellers and providers.</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Browse 500K+ listings
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Book service providers
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Escrow protection on all orders
+                </div>
+            </div>
+        </div>
+
+        <!-- Seller -->
+        <div class="card" onclick="selectCard(this)">
+            <span class="card-icon">🏪</span>
+            <h3>Seller</h3>
+            <p>List and sell your products to millions of buyers across Nigeria.</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Unlimited product listings
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Built-in escrow payments
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Sales analytics dashboard
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Provider -->
+        <div class="card" onclick="selectCard(this)">
+            <span class="card-icon">🔧</span>
+            <h3>Service Provider</h3>
+            <p>Offer professional services and receive bookings from nearby clients.</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Create your service profile
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Manage bookings & calendar
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Earn with escrow protection
+                </div>
+            </div>
+        </div>
+
+        <!-- Buyer & Seller -->
+        <div class="card" onclick="selectCard(this)">
+            <span class="badge entrepreneur">Best for entrepreneurs</span>
+            <span class="card-icon">⚡</span>
+            <h3>Buyer & Seller</h3>
+            <p>Buy for yourself and also sell your own products on YOVI.</p>
+            <div class="feature-list">
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Full buyer + seller access
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Separate dashboards
+                </div>
+                <div class="feature-item">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    Switch roles anytime
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="continue-btn" id="continue-btn">
+        Continue
+        <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+    </button>
+
+    <p class="footer-note">You can change your account type anytime from Settings</p>
+
+    <script>
+        const continueBtn = document.getElementById('continue-btn');
+        
+        function selectCard(element) {
+            // Remove selected class from all cards
+            document.querySelectorAll('.card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selected class to clicked card
+            element.classList.add('selected');
+            
+            // Enable continue button
+            continueBtn.classList.add('active');
+        }
+
+        continueBtn.addEventListener('click', () => {
+            if (continueBtn.classList.contains('active')) {
+                alert('Account type selected! Moving to profile setup...');
+            }
+        });
+    </script>
+</body>
+</html>

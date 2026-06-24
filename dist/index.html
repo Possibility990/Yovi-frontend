@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>YOVI — Buy, Sell & Find Trusted Services Near You</title>
+<meta name="description" content="YOVI connects you with verified sellers and service providers in your community." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ <link rel="stylesheet" href="./css/style.css">
+<script type="module" src="app.js" defer  ></script>
+<!-- <style>
+  
+  :root{
+    --green:#10b981; --green-600:#059669; --green-300:#6ee7b7; --green-50:#ecfdf5;
+    --orange:#f97316; --orange-600:#ea580c;
+    --dark:#1a222e; --dark-2:#243043;
+    --ink:#1f2937; --muted:#6b7280; --line:#e5e7eb;
+    --bg:#ffffff; --soft:#f3f4f6; --soft-2:#eef2f7;
+    --r-sm:8px; --r-md:12px; --r-lg:20px;
+    --shadow-sm:0 1px 2px rgba(16,24,40,.06);
+    --shadow:0 8px 24px rgba(16,24,40,.08);
+    --shadow-lg:0 20px 40px rgba(16,24,40,.12);
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+    color:var(--ink); background:#fff; line-height:1.5; -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+  .container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+
+  /* ---------- Buttons ---------- */
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:11px 18px;border-radius:var(--r-md);font-weight:600;font-size:14px;
+    transition:transform .15s ease, background .2s ease, box-shadow .2s ease;white-space:nowrap}
+  .btn:active{transform:translateY(1px)}
+  .btn-primary{background:var(--green);color:#fff}
+  .btn-primary:hover{background:var(--green-600)}
+  .btn-orange{background:var(--orange);color:#fff}
+  .btn-orange:hover{background:var(--orange-600)}
+  .btn-ghost{background:#fff;color:var(--ink);border:1px solid var(--line)}
+  .btn-ghost:hover{background:var(--soft)}
+  .btn-dark{background:var(--dark);color:#fff}
+  .btn-dark:hover{background:var(--dark-2)}
+  .btn-sm{padding:8px 12px;font-size:13px;border-radius:10px}
+  .btn-block{width:100%}
+
+  /* ---------- Header ---------- */
+  .header{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:24px}
+  .logo{font-weight:800;font-size:24px;letter-spacing:-.5px;display:inline-flex;align-items:baseline}
+  .logo .y{color:var(--ink)}
+  .logo .o{color:var(--orange)}
+  .logo .v{color:var(--green)}
+  .logo .i{color:var(--ink)}
+  .nav-links{display:flex;align-items:center;gap:6px;background:#f6f7f9;padding:6px;border-radius:999px}
+  .nav-links a{padding:8px 16px;border-radius:999px;font-size:14px;font-weight:500;color:#4b5563}
+  .nav-links a.active{background:#fff;color:var(--green);box-shadow:var(--shadow-sm)}
+  .nav-actions{display:flex;align-items:center;gap:10px}
+  .nav-actions .login{font-size:14px;font-weight:500;color:var(--ink);padding:8px 10px}
+  .burger{display:none;width:40px;height:40px;border-radius:10px;border:1px solid var(--line);
+    align-items:center;justify-content:center}
+  .burger span{width:18px;height:2px;background:var(--ink);position:relative}
+  .burger span::before,.burger span::after{content:"";position:absolute;left:0;width:18px;height:2px;background:var(--ink)}
+  .burger span::before{top:-6px}.burger span::after{top:6px}
+
+  /* ---------- Hero ---------- */
+  .hero{padding:48px 0 32px}
+  .hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+  .eyebrow{font-size:13px;color:var(--muted);font-weight:500;margin:0 0 6px}
+  .hero h1{font-size:clamp(32px,4.4vw,52px);line-height:1.05;margin:0 0 16px;font-weight:800;letter-spacing:-1px}
+  .hero h1 .accent{color:var(--green);display:block}
+  .hero p{color:var(--muted);font-size:16px;max-width:480px;margin:0 0 24px}
+  .hero-ctas{display:flex;gap:12px;flex-wrap:wrap}
+  .hero-visual{position:relative;display:grid;grid-template-columns:1fr 1.1fr;gap:16px;align-items:center}
+  .hero-photo{border-radius:var(--r-lg);overflow:hidden;background:#e5e7eb;aspect-ratio:4/5;position:relative}
+  .hero-photo img{width:100%;height:100%;object-fit:cover}
+  .hero-side{display:flex;flex-direction:column;gap:16px}
+  .stat-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:14px 16px;box-shadow:var(--shadow-sm)}
+  .stat-card .k{font-size:12px;color:var(--muted)}
+  .stat-card .v{font-size:18px;font-weight:700;margin-top:2px}
+  .promo{background:linear-gradient(135deg,#10b981,#059669);color:#fff;border-radius:var(--r-lg);padding:16px;
+    position:relative;overflow:hidden}
+  .promo .tag{display:inline-block;background:var(--orange);color:#fff;font-size:11px;font-weight:700;
+    padding:4px 8px;border-radius:999px;margin-bottom:8px}
+  .promo h4{margin:0 0 4px;font-size:16px;font-weight:700}
+  .promo p{margin:0;font-size:12px;opacity:.9}
+
+  /* ---------- Trust strip ---------- */
+  .trust{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fafbfc;padding:18px 0}
+  .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .trust-item{display:flex;gap:10px;align-items:flex-start}
+  .trust-item .icon{width:32px;height:32px;border-radius:8px;background:var(--green-50);color:var(--green);
+    display:grid;place-items:center;flex-shrink:0}
+  .trust-item h5{margin:0;font-size:13px;font-weight:600}
+  .trust-item p{margin:2px 0 0;font-size:11.5px;color:var(--muted);line-height:1.4}
+
+  /* ---------- Section heading ---------- */
+  .section{padding:48px 0}
+  .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;gap:16px}
+  .section-head h2{margin:0;font-size:22px;font-weight:700}
+  .section-head .link{color:var(--green);font-size:13px;font-weight:600}
+
+  /* ---------- Featured Products (compact strip) ---------- */
+  .products-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:12px}
+  .p-card{background:#fff;border:1px solid var(--line);border-radius:var(--r-md);padding:12px;position:relative;
+    transition:transform .2s ease, box-shadow .2s ease}
+  .p-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
+  .p-card .heart{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:999px;
+    display:grid;place-items:center;color:#9ca3af}
+  .p-card .img{aspect-ratio:1;border-radius:8px;background:#f3f4f6;display:grid;place-items:center;margin-bottom:8px;overflow:hidden}
+  .p-card .img img{width:80%;height:80%;object-fit:contain}
+  .p-card .name{font-size:12px;font-weight:600;line-height:1.3;min-height:32px}
+  .p-card .price{font-size:13px;font-weight:700;color:var(--ink);margin-top:4px}
+
+  /* ---------- Popular near you pills ---------- */
+  .pills{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:14px}
+  .pill{background:#fff;border:1px solid var(--line);border-radius:999px;padding:10px 14px;
+    display:flex;align-items:center;gap:8px;font-size:12px;color:#374151}
+  .pill .dot{width:6px;height:6px;border-radius:50%;background:var(--green)}
+
+  /* ---------- Mega Deals banner ---------- */
+  .mega{border-radius:var(--r-lg);overflow:hidden;position:relative;min-height:340px;
+    background-image:linear-gradient(90deg,rgba(26,34,46,.85) 0%,rgba(26,34,46,.35) 60%,rgba(26,34,46,0) 100%),
+      url('https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=1600&q=80&auto=format&fit=crop');
+    background-size:cover;background-position:center;color:#fff;display:flex;align-items:center;padding:48px}
+  .mega .tag{display:inline-block;background:var(--orange);font-size:11px;font-weight:700;
+    padding:5px 10px;border-radius:6px;margin-bottom:14px;letter-spacing:.5px}
+  .mega h2{margin:0 0 12px;font-size:clamp(26px,3.6vw,40px);font-weight:800;line-height:1.1;max-width:520px}
+  .mega p{margin:0 0 22px;font-size:14px;max-width:440px;opacity:.92}
+  .mega-ctas{display:flex;gap:10px;flex-wrap:wrap}
+  .mega .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+  .mega .btn-ghost:hover{background:rgba(255,255,255,.1)}
+
+  /* ---------- Flash / Top sellers panels ---------- */
+  .panel{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:#fff}
+  .panel-head{padding:14px 18px;display:flex;align-items:center;justify-content:space-between;color:#fff;font-weight:700}
+  .panel-head.flash{background:var(--orange)}
+  .panel-head.top{background:var(--orange)}
+  .panel-head .left{display:flex;align-items:center;gap:12px;font-size:15px}
+  .panel-head .timer{background:rgba(0,0,0,.25);font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;
+    display:inline-flex;align-items:center;gap:6px}
+  .panel-head .view{font-size:12px;color:#fff;opacity:.9}
+  .panel-body{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;padding:18px}
+  .deal{border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;background:#fff;
+    display:flex;flex-direction:column;transition:transform .2s ease, box-shadow .2s ease;position:relative}
+  .deal:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+  .deal .ribbon{position:absolute;top:8px;left:8px;background:var(--orange);color:#fff;font-size:10px;
+    font-weight:700;padding:3px 8px;border-radius:4px;letter-spacing:.5px;z-index:2}
+  .deal .img{aspect-ratio:4/3;background:#f3f4f6;overflow:hidden}
+  .deal .img img{width:100%;height:100%;object-fit:cover}
+  .deal .body{padding:12px 12px 14px}
+  .deal .name{font-size:13px;font-weight:600;min-height:36px;line-height:1.3}
+  .deal .price{display:flex;align-items:baseline;gap:6px;margin:6px 0 10px}
+  .deal .price .now{font-size:15px;font-weight:700}
+  .deal .price .was{font-size:12px;color:var(--muted);text-decoration:line-through}
+  .deal .add{width:100%;border:1px solid var(--line);background:#fff;padding:7px;font-size:12px;font-weight:600;border-radius:8px;color:var(--ink)}
+  .deal .add:hover{background:var(--green);color:#fff;border-color:var(--green)}
+
+  /* ---------- Top Rated Local Pros ---------- */
+  .pros{background:#f6f8fb;border-radius:var(--r-lg);padding:28px}
+  .pros-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}
+  .pros-head h2{margin:0 0 4px;font-size:22px}
+  .pros-head p{margin:0;color:var(--muted);font-size:13px}
+  .pros-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .pro-card{background:#fff;border-radius:var(--r-lg);padding:18px;display:flex;flex-direction:column;gap:12px;
+    box-shadow:var(--shadow-sm)}
+  .pro-top{display:flex;gap:12px;align-items:center}
+  .pro-top .avatar{width:54px;height:54px;border-radius:50%;background:#e5e7eb;overflow:hidden;flex-shrink:0}
+  .pro-top .avatar img{width:100%;height:100%;object-fit:cover}
+  .pro-top .info{min-width:0;flex:1}
+  .pro-top .row{display:flex;justify-content:space-between;align-items:center;gap:8px}
+  .pro-top .name{font-weight:700;font-size:15px}
+  .pro-top .rating{font-size:12px;color:var(--orange);font-weight:600;white-space:nowrap}
+  .pro-top .role{font-size:12px;color:var(--muted);margin-top:2px}
+  .pro-verified{display:inline-flex;align-items:center;gap:4px;font-size:11px;color:var(--green);font-weight:600}
+
+  /* ---------- Recommended (bento) ---------- */
+  .bento{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:auto auto;gap:14px}
+  .bento .cell{border-radius:var(--r-lg);overflow:hidden;position:relative;min-height:180px;color:#fff;padding:20px;
+    display:flex;flex-direction:column;justify-content:flex-end}
+  .bento .a{grid-row:1/2;background:#1f2937 url('https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?w=900&q=80&auto=format&fit=crop') center/cover}
+  .bento .b{background:var(--green);grid-column:2;grid-row:1}
+  .bento .c{background:var(--orange);grid-column:2;grid-row:1}
+  .bento .row-top{display:grid;grid-template-columns:1fr 1fr;gap:14px;grid-column:2}
+  .bento h3{margin:0 0 6px;font-size:16px;font-weight:700}
+  .bento p{margin:0;font-size:12px;opacity:.9}
+  .bento .ico{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.18);display:grid;place-items:center;margin-bottom:auto}
+  .bento .light{background:#eef2f7;color:var(--ink);grid-column:1/3}
+  .bento .light h3{color:var(--ink)} .bento .light p{color:var(--muted)}
+  .bento .light .link{color:var(--green);font-weight:600;font-size:13px;margin-top:8px;display:inline-block}
+
+  .reco-strip{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-top:18px}
+
+  /* ---------- Community ---------- */
+  .community{background:linear-gradient(135deg,#064e3b,#065f46);color:#fff;border-radius:var(--r-lg);
+    padding:48px;display:grid;grid-template-columns:1.1fr 1fr;gap:40px;align-items:center}
+  .community h2{margin:0 0 14px;font-size:clamp(26px,3vw,36px);font-weight:800;line-height:1.1}
+  .community > div > p{margin:0 0 22px;opacity:.85;font-size:14px;max-width:440px}
+  .feat{display:flex;gap:12px;margin-bottom:14px;align-items:flex-start}
+  .feat .ico{width:36px;height:36px;border-radius:8px;background:rgba(255,255,255,.12);display:grid;place-items:center;flex-shrink:0;color:var(--green-300)}
+  .feat h4{margin:0;font-size:14px;font-weight:600}
+  .feat p{margin:2px 0 0;font-size:12px;opacity:.8}
+  .community-imgs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .community-imgs .ci{aspect-ratio:1;border-radius:var(--r-md);overflow:hidden;background:#1f2937}
+  .community-imgs .ci img{width:100%;height:100%;object-fit:cover;opacity:.92}
+
+  /* ---------- Footer ---------- */
+  .footer{background:var(--dark);color:#cbd5e1;padding:56px 0 24px;margin-top:48px}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.4fr;gap:32px}
+  .foot-grid h6{color:#fff;font-size:14px;margin:0 0 14px;font-weight:600}
+  .foot-grid ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px;font-size:13px}
+  .foot-grid a:hover{color:#fff}
+  .foot-about p{font-size:13px;margin:14px 0 18px;opacity:.85;max-width:280px}
+  .socials{display:flex;gap:10px}
+  .socials a{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.08);display:grid;place-items:center}
+  .news-row{display:flex;gap:8px}
+  .news-row input{flex:1;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--r-sm);
+    padding:10px 12px;color:#fff;font:inherit;font-size:13px;outline:none}
+  .news-row input::placeholder{color:#94a3b8}
+  .news-row button{width:42px;border-radius:var(--r-sm);background:var(--orange);color:#fff;display:grid;place-items:center}
+  .news-row button:hover{background:var(--orange-600)}
+  .copyright{border-top:1px solid rgba(255,255,255,.08);margin-top:36px;padding-top:18px;text-align:center;font-size:12px;opacity:.7}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr;gap:32px}
+    .hero-visual{max-width:560px}
+    .products-strip{grid-template-columns:repeat(4,1fr)}
+    .panel-body{grid-template-columns:repeat(3,1fr)}
+    .pills{grid-template-columns:repeat(3,1fr)}
+    .trust-grid{grid-template-columns:repeat(2,1fr)}
+    .bento{grid-template-columns:1fr}
+    .bento .a,.bento .b,.bento .c,.bento .light{grid-column:auto;grid-row:auto}
+    .reco-strip{grid-template-columns:repeat(3,1fr)}
+    .community{grid-template-columns:1fr;padding:36px}
+    .pros-grid{grid-template-columns:repeat(2,1fr)}
+    .foot-grid{grid-template-columns:1fr 1fr;gap:28px}
+  }
+  @media (max-width:720px){
+    .nav-links{display:none}
+    .burger{display:flex}
+    .nav-actions .login{display:none}
+    .hero{padding:32px 0 16px}
+    .hero-visual{grid-template-columns:1fr;max-width:420px;margin:0 auto}
+    .hero-photo{aspect-ratio:16/12}
+    .mega{padding:28px;min-height:280px}
+    .products-strip{grid-template-columns:repeat(2,1fr)}
+    .panel-body{grid-template-columns:repeat(2,1fr);padding:14px;gap:10px}
+    .pills{grid-template-columns:repeat(2,1fr)}
+    .reco-strip{grid-template-columns:repeat(2,1fr)}
+    .pros-grid{grid-template-columns:1fr}
+    .pros{padding:20px}
+    .foot-grid{grid-template-columns:1fr;gap:24px}
+    .section{padding:32px 0}
+  }
+  @media (max-width:420px){
+    .trust-grid{grid-template-columns:1fr}
+  }
+</style> -->
+<script defer src="bundle.js"></script><link href="main.css" rel="stylesheet"></head>
+<body>
+
+
+<header class="header">
+  <div class="container nav">
+    <a href="#" class="logo"><img src="./images/logo.png" alt=""></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="./dashboard.html" class="active">Home</a>
+      <a href="#products">Products</a>
+      <a href="#services">Services</a>
+    </nav>
+    <div class="nav-actions">
+      <a href="#" class="login">Log in</a>
+      <a href="./signup.html" class="btn btn-orange btn-sm">Get started</a>
+      <button class="burger" aria-label="Menu"><span></span></button>
+    </div>
+  </div>
+</header>
+
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <p class="eyebrow">Buy, Sell &amp; Find</p>
+      <h1>Trusted Services <span class="accent">Near You</span></h1>
+      <p>YOVI connects you with verified sellers and service providers in your community.</p>
+      <div class="hero-ctas">
+        <a href="#products" class="btn btn-primary">Shop Products</a>
+        <a href="#services" class="btn btn-ghost">Find Services</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-side">
+        <div class="stat-card">
+          <div class="k">Verified sellers</div>
+          <div class="v">10,500+</div>
+        </div>
+        <div class="stat-card">
+          <div class="k">Active orders today</div>
+          <div class="v">28,140</div>
+        </div>
+        <div class="promo">
+          <span class="tag">UP TO 60% OFF</span>
+          <h4>Gadget Fever!</h4>
+          <p>Catch the latest deals from the deck.</p>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=900&q=80&auto=format&fit=crop" alt="Happy customer shopping online" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="trust">
+  <div class="container trust-grid">
+    <div class="trust-item">
+      <div class="icon">✓</div>
+      <div><h5>Escrow Protection</h5><p>Your payment is held safely until you confirm delivery.</p></div>
+    </div>
+    <div class="trust-item">
+      <div class="icon">✓</div>
+      <div><h5>Verified Users</h5><p>Every seller goes through a multi-step ID check.</p></div>
+    </div>
+    <div class="trust-item">
+      <div class="icon">✓</div>
+      <div><h5>Quality Services</h5><p>Top-rated local pros with proven track records.</p></div>
+    </div>
+    <div class="trust-item">
+      <div class="icon">✓</div>
+      <div><h5>24/7 Support</h5><p>Real humans on call whenever you need help.</p></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="products">
+  <div class="container">
+    <div class="section-head">
+      <h2>Featured Products</h2>
+      <a href="#" class="link">View all products →</a>
+    </div>
+    <div class="products-strip" id="featured"></div>
+
+    <div class="section-head" style="margin-top:28px">
+      <h2 style="font-size:18px">Popular Services Near You</h2>
+    </div>
+    <div class="pills" id="pills"></div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:8px">
+  <div class="container">
+    <div class="mega">
+      <div>
+        <span class="tag">YOVI</span>
+        <h2>Mega Deals on Home Services</h2>
+        <p>Get up to 40% off on plumbing, cleaning and gardening from top-rated local pros this weekend.</p>
+        <div class="mega-ctas">
+          <a href="#" class="btn btn-primary">Book Now</a>
+          <a href="#" class="btn btn-ghost">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="panel">
+      <div class="panel-head flash">
+        <div class="left">
+          <span>Flash Sales</span>
+          <span class="timer" id="timer1">⏱ 03:45:12</span>
+        </div>
+        <a href="#" class="view">View All Flash Sales →</a>
+      </div>
+      <div class="panel-body" id="flash"></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="panel">
+      <div class="panel-head top">
+        <div class="left">
+          <span>Top Sellers</span>
+          <span class="timer" id="timer2">⏱ 06:45:12</span>
+        </div>
+        <a href="#" class="view">View All Top Sellers →</a>
+      </div>
+      <div class="panel-body" id="topsell"></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="services" style="padding-top:0">
+  <div class="container">
+    <div class="pros">
+      <div class="pros-head">
+        <div>
+          <h2>Top Rated Local Pros</h2>
+          <p>Verified experts ready to help you today.</p>
+        </div>
+        <a href="#" class="btn btn-dark btn-sm">Browse All Experts</a>
+      </div>
+      <div class="pros-grid" id="pros"></div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="section-head"><h2>Recommended for You</h2></div>
+    <div class="bento">
+      <div class="cell a">
+        <h3>Zenith X-1 Pro</h3>
+        <p>Best-selling electronics this month</p>
+      </div>
+      <div class="cell b">
+        <div class="ico">🚀</div>
+        <h3>Fast Track Services</h3>
+        <p>Same-day, top-rated pros at your door.</p>
+      </div>
+      <div class="cell c">
+        <div class="ico">🛍</div>
+        <h3>Member Perks</h3>
+        <p>Exclusive prices for community members.</p>
+      </div>
+      <div class="cell light">
+        <h3>Modern Living Essentials</h3>
+        <p>Curated by local interior designers.</p>
+        <a href="#" class="link">Shop Collection →</a>
+      </div>
+    </div>
+    <div class="reco-strip" id="reco"></div>
+  </div>
+</section>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="community">
+      <div>
+        <h2>Built for Community, by Community.</h2>
+        <p>YOVI connects people with local sellers and experts. Read real reviews, join community discussions and support local growth.</p>
+        <div class="feat">
+          <div class="ico">✓</div>
+          <div><h4>Verified Local Sellers</h4><p>Every seller goes through a multi-step verification process to ensure safety.</p></div>
+        </div>
+        <div class="feat">
+          <div class="ico">✓</div>
+          <div><h4>Latest Community Posts</h4><p>Join over 10,000 locals sharing tips, recommendations, and news.</p></div>
+        </div>
+        <a href="#" class="btn btn-primary" style="margin-top:12px">Join the Community</a>
+      </div>
+      <div class="community-imgs">
+        <div class="ci"><img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80&auto=format&fit=crop" alt="Community team"></div>
+        <div class="ci"><img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=600&q=80&auto=format&fit=crop" alt="Handshake"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container foot-grid">
+    <div class="foot-about">
+      <div class="logo" style="font-size:28px"><img src="./images//logo.png" alt=""></div>
+      <p>Empowering local communities through seamless commerce and trust for all.</p>
+      <div class="socials">
+        <a href="#" aria-label="Instagram">◐</a>
+        <a href="#" aria-label="Twitter">◑</a>
+        <a href="#" aria-label="Facebook">◒</a>
+      </div>
+    </div>
+    <div>
+      <h6>Marketplace</h6>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+        <li><a href="#">Help Center</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Safety &amp; Rules</h6>
+      <ul>
+        <li><a href="#">Safety Rules</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Contact Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h6>Join Our Newsletter</h6>
+      <p style="font-size:13px;margin:0 0 12px;opacity:.85">Get the latest local deals and community updates.</p>
+      <form class="news-row" onsubmit="event.preventDefault();this.querySelector('input').value='';alert('Subscribed!')">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit" aria-label="Subscribe">→</button>
+      </form>
+    </div>
+  </div>
+  <div class="container copyright">© 2025 YOVI Marketplace. All rights reserved. Built for community &amp; efficiency.</div>
+</footer>
+
+<!-- <script>
+
+(function(){
+  const img = (q) => `https://images.unsplash.com/${q}?w=400&q=80&auto=format&fit=crop`;
+
+  const featured = [
+    {name:'iPhone 13 Pro Max 256GB', price:'₦700,000', img:img('photo-1592750475338-74b7b21085ab')},
+    {name:'HP Pavilion Laptop 15.6', price:'₦420,000', img:img('photo-1496181133206-80ce9b88a853')},
+    {name:'Nike Air Force 1 White', price:'₦45,000',  img:img('photo-1542291026-7eec264c27ff')},
+    {name:'Gucci Handbag Black', price:'₦790,000',    img:img('photo-1584917865442-de89df76afd3')},
+    {name:'Apple Watch Series 7 45mm', price:'₦390,000', img:img('photo-1546868871-7041f2a55e12')},
+    {name:'Canon EOS Camera', price:'₦750,000',       img:img('photo-1502920917128-1aa500764cbd')},
+  ];
+
+  const pills = [
+    'Mechanics · 1,820 nearby',
+    'Plumbers · 950 available',
+    'Tailors · 1,180 nearby',
+    'Electricians · 760 nearby',
+    'Hairdressers · 2,150 nearby',
+    'Home Cleaners · 540 nearby',
+  ];
+
+  const flash = [
+    {tag:'NEW', name:'Vantage Pro Watch', now:'₦129K', was:'₦170K', img:img('photo-1523275335684-37898b6baf30')},
+    {tag:'NEW', name:'Lumina Shades',     now:'₦45K',  was:'₦65K',  img:img('photo-1572635196237-14b3f281503f')},
+    {tag:'SALE',name:'Nitro Runners',     now:'₦110K', was:'₦150K', img:img('photo-1542291026-7eec264c27ff')},
+    {tag:'SALE',name:'Sonic Pro HD',      now:'₦89K',  was:'₦120K', img:img('photo-1505740420928-5e560c06d30e')},
+    {tag:null,  name:'Modern Slim Tablet',now:'₦349K', was:'₦450K', img:img('photo-1561154464-82e9adf32764')},
+  ];
+
+  const top = [
+    {name:'Infinix Note 40 Pro', now:'₦310,000', img:img('photo-1511707171634-5f897ff02aa9')},
+    {name:'LP 32" Digital TV',   now:'₦210,000', img:img('photo-1593359677879-a4bb92f829d1')},
+    {name:'Yamaha 7.2 Channel Wireless', now:'₦85,000', img:img('photo-1545454675-3531b543be5d')},
+    {name:'Rechargeable Fan',    now:'₦50,000',  img:img('photo-1565843708714-52ecf69ab81f')},
+    {name:'YOVI Backpack',       now:'₦35,000',  img:img('photo-1553062407-98eeb64c6a62')},
+  ];
+
+  const pros = [
+    {name:'Marcus Chen', role:'Licensed Master Plumber', rating:4.9, avatar:img('photo-1507003211169-0a1dd7228f2d')},
+    {name:'Sarah Miller', role:'Interior Design Consultant', rating:5.0, avatar:img('photo-1494790108377-be9c29b29330')},
+    {name:'David Wilson', role:'Electrical Specialist', rating:4.8, avatar:img('photo-1500648767791-00dcc994a43e')},
+  ];
+
+  const reco = [
+    {tag:'-15%', name:'Premium Smartphone Cleaning Service', price:'From ₦45.00', img:img('photo-1556761175-b413da4baf72')},
+    {tag:'',     name:'Aviator Gold Edition Shades', price:'₦100.00', img:img('photo-1577803645773-f96470509666')},
+    {tag:'',     name:'Cosmic Jetwing Pros', price:'₦65.99', img:img('photo-1542291026-7eec264c27ff')},
+    {tag:'SALE', name:'Aerolite XR Runners', price:'₦45.50', img:img('photo-1595950653106-6c9ebd614d3a')},
+    {tag:'SALE', name:'Wireless ProBeats', price:'₦129.99', img:img('photo-1583394838336-acd977736f90')},
+    {tag:'SALE', name:'StarCircle Watch', price:'₦99.00', img:img('photo-1524592094714-0f0654e20314')},
+  ];
+
+  /* ----- renderers ----- */
+  const $ = (s)=>document.querySelector(s);
+
+  $('#featured').innerHTML = featured.map(p => `
+    <article class="p-card">
+      <button class="heart" aria-label="Favorite">♡</button>
+      <div class="img"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+      <div class="name">${p.name}</div>
+      <div class="price">${p.price}</div>
+    </article>`).join('');
+
+  $('#pills').innerHTML = pills.map(p => `<div class="pill"><span class="dot"></span>${p}</div>`).join('');
+
+  $('#flash').innerHTML = flash.map(d => `
+    <article class="deal">
+      ${d.tag ? `<span class="ribbon">${d.tag}</span>` : ''}
+      <div class="img"><img src="${d.img}" alt="${d.name}" loading="lazy"></div>
+      <div class="body">
+        <div class="name">${d.name}</div>
+        <div class="price"><span class="now">${d.now}</span><span class="was">${d.was}</span></div>
+        <button class="add">Add to Cart</button>
+      </div>
+    </article>`).join('');
+
+  $('#topsell').innerHTML = top.map(d => `
+    <article class="deal">
+      <div class="img"><img src="${d.img}" alt="${d.name}" loading="lazy"></div>
+      <div class="body">
+        <div class="name">${d.name}</div>
+        <div class="price"><span class="now" style="color:var(--green)">${d.now}</span></div>
+        <button class="add">Add to Cart</button>
+      </div>
+    </article>`).join('');
+
+  $('#pros').innerHTML = pros.map(p => `
+    <div class="pro-card">
+      <div class="pro-top">
+        <div class="avatar"><img src="${p.avatar}" alt="${p.name}"></div>
+        <div class="info">
+          <div class="row"><div class="name">${p.name}</div><div class="rating">★ ${p.rating.toFixed(1)}</div></div>
+          <div class="role">${p.role}</div>
+          <div class="pro-verified">✓ Verified Pro</div>
+        </div>
+      </div>
+      <button class="btn btn-primary btn-sm btn-block">Book Now</button>
+    </div>`).join('');
+
+  $('#reco').innerHTML = reco.map(r => `
+    <article class="p-card">
+      ${r.tag ? `<span class="ribbon" style="position:absolute;top:8px;left:8px;background:var(--orange);color:#fff;font-size:10px;font-weight:700;padding:3px 8px;border-radius:4px">${r.tag}</span>` : ''}
+      <div class="img"><img src="${r.img}" alt="${r.name}" loading="lazy"></div>
+      <div class="name">${r.name}</div>
+      <div class="price" style="color:var(--green)">${r.price}</div>
+      <button class="add" style="margin-top:8px;width:100%;border:1px solid var(--line);background:#fff;padding:7px;font-size:12px;font-weight:600;border-radius:8px">Book</button>
+    </article>`).join('');
+
+  /* ----- countdown timers ----- */
+  function countdown(elId, secs){
+    const el = document.getElementById(elId);
+    let s = secs;
+    function fmt(n){return String(n).padStart(2,'0')}
+    function tick(){
+      const h=Math.floor(s/3600), m=Math.floor((s%3600)/60), x=s%60;
+      el.textContent = `⏱ ${fmt(h)}:${fmt(m)}:${fmt(x)}`;
+      if(s>0) s--; else s = secs;
+    }
+    tick(); setInterval(tick,1000);
+  }
+  countdown('timer1', 3*3600+45*60+12);
+  countdown('timer2', 6*3600+45*60+12);
+
+  /* ----- mobile menu (placeholder toggle) ----- */
+  const burger = document.querySelector('.burger');
+  burger && burger.addEventListener('click', ()=>{
+    const links = document.querySelector('.nav-links');
+    if(!links) return;
+    const open = links.style.display === 'flex';
+    console.log(open)
+    links.style.display = open ? '' : 'flex';
+    links.style.position = 'absolute';
+    links.style.top = '64px'; links.style.left='20px'; links.style.right='20px';
+    links.style.flexDirection='column'; links.style.borderRadius='12px';
+    links.style.padding='12px'; links.style.background='#fff';
+    links.style.boxShadow='var(--shadow)';
+  });
+})();
+</script> -->
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Yovi — Notifications</title>
+<link rel="stylesheet" href="styles.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="./css/style.css">
+<script src="index.js" defer></script>
+
+</head>
+<body>
+  <!-- Header -->
+  <header class="navbar">
+    <div class="nav-inner">
+      <a href="#" class="logo" aria-label="Yovi home">
+        <img src="./images/logo.png" alt="">
+        <small class="logo-tag">Buy, Sell &amp; Find Trusted Services Near You</small>
+      </a>
+
+      <button class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Products</a>
+        <a href="#" class="nav-link">Services</a>
+        <a href="#" class="nav-link">Orders</a>
+        <a href="#" class="nav-link">Bookings</a>
+        <a href="#" class="nav-link">Messages</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="icon-btn" aria-label="Cart">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.7 13.4a2 2 0 0 0 2 1.6h9.7a2 2 0 0 0 2-1.6L23 6H6"/></svg>
+        </button>
+        <button class="icon-btn has-dot" aria-label="Notifications">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+          <span class="dot"></span>
+        </button>
+        <button class="profile" aria-label="Account">
+          <img src="/images/notiImage.png" alt="" />
+          <span>Admin</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main -->
+  <main class="page">
+    <section class="notifications">
+      <div class="notif-header">
+        <div>
+          <h1>Notifications</h1>
+          <p class="sub">You have <strong class="unread-count">3 unread</strong> notifications</p>
+        </div>
+        <button class="mark-read" type="button">Mark all as read</button>
+      </div>
+
+      <div class="filters" role="tablist">
+        <button class="chip active" data-filter="all" role="tab" aria-selected="true">All</button>
+        <button class="chip" data-filter="orders" role="tab">Orders</button>
+        <button class="chip" data-filter="bookings" role="tab">Bookings</button>
+        <button class="chip" data-filter="messages" role="tab">Messages</button>
+        <button class="chip" data-filter="escrow" role="tab">Escrow</button>
+      </div>
+
+      <ul class="notif-list" id="notifList">
+        <li class="notif unread" data-category="orders">
+          <div class="ic ic-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>Order Shipped</h3>
+              <span class="meta">2 minutes ago <span class="status-dot"></span></span>
+            </div>
+            <p>Your Samsung Galaxy A54 is on its way! Tracking: GIG-2024-88412</p>
+          </div>
+        </li>
+
+        <li class="notif unread" data-category="escrow">
+          <div class="ic ic-purple">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>Escrow Payment Held</h3>
+              <span class="meta">15 minutes ago <span class="status-dot"></span></span>
+            </div>
+            <p>₦185,000 is safely held in escrow for order #YV-2024-089341.</p>
+          </div>
+        </li>
+
+        <li class="notif unread" data-category="bookings">
+          <div class="ic ic-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>Booking Confirmed</h3>
+              <span class="meta">1 hour ago <span class="status-dot"></span></span>
+            </div>
+            <p>Emeka Okafor confirmed your Full Car Service for Jun 21 at 10:00 AM.</p>
+          </div>
+        </li>
+
+        <li class="notif" data-category="messages">
+          <div class="ic ic-orange">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>New Message</h3>
+              <span class="meta">2 hours ago</span>
+            </div>
+            <p>TechHub Lagos: "Your order has been shipped! Thank you for shopping with us."</p>
+          </div>
+        </li>
+
+        <li class="notif" data-category="orders">
+          <div class="ic ic-yellow">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>Leave a Review</h3>
+              <span class="meta">1 day ago</span>
+            </div>
+            <p>You received your Air Fryer 5.5L. How was the product and seller experience?</p>
+          </div>
+        </li>
+
+        <li class="notif" data-category="orders">
+          <div class="ic ic-mint">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 9 11 13 15 21 7"/><polyline points="14 7 21 7 21 14"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>Price Drop Alert</h3>
+              <span class="meta">1 day ago</span>
+            </div>
+            <p>A product in your saved items dropped by 15%: iPhone 14 Pro is now ₦527,000.</p>
+          </div>
+        </li>
+
+        <li class="notif" data-category="orders">
+          <div class="ic ic-green">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>Delivery Confirmed</h3>
+              <span class="meta">3 days ago</span>
+            </div>
+            <p>You confirmed delivery of 'Ankara Print Dress'. ₦12,500 has been released to the seller.</p>
+          </div>
+        </li>
+
+        <li class="notif" data-category="orders">
+          <div class="ic ic-blue">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="body">
+            <div class="row">
+              <h3>Identity Verification Reminder</h3>
+              <span class="meta">5 days ago</span>
+            </div>
+            <p>Upload your government ID to earn your Verified badge and build trust with sellers.</p>
+          </div>
+        </li>
+      </ul>
+
+      <p class="footer-note">You're all caught up · Notifications older than 30 days are cleared automatically</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
