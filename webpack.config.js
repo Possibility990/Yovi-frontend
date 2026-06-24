@@ -3,14 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-    mode: process.env.NODE_ENV || 'production',
+    mode: 'production',
 
     entry: './src/app.js',
 
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'bundle.js',
-        clean: true
+        clean: true,
+        publicPath: '/'
     },
 
     devServer: {
@@ -49,24 +50,20 @@ module.exports = {
 
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Webpack App',
             filename: 'index.html',
-            template: './src/index.html',
+            template: './src/index.html'
         }),
         new HtmlWebpackPlugin({
-            title: 'Account Type',
             filename: 'account-type.html',
-            template: './src/account-type.html',
+            template: './src/account-type.html'
         }),
         new HtmlWebpackPlugin({
-            title: 'Signup',
             filename: 'signup.html',
-            template: './src/signup.html',
+            template: './src/signup.html'
         }),
         new HtmlWebpackPlugin({
-            title: 'Verify',
             filename: 'verify.html',
-            template: './src/verify.html',
+            template: './src/verify.html'
         }),
 
         new MiniCssExtractPlugin({
