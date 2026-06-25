@@ -22,7 +22,25 @@ class AccountType {
 
     handleContinue() {
         if (this.continueBtn.classList.contains('active')) {
-            alert('Account type selected! Moving to profile setup...');
+            this.cards.forEach(card => {
+                if (card.classList.contains('selected')) {
+                    const actualUser = card
+                        .firstElementChild
+                        .nextElementSibling
+                        .textContent
+                        .toLowerCase();
+
+                    if (actualUser === 'service provider') {
+                        window.location.href = 'service_provider_profile_setup.html';
+                    } else if (actualUser === 'seller') {
+                        window.location.href = 'seller.html';
+                    } else if (actualUser === 'buyer') {
+                        window.location.href = 'buyer.html';
+                    } else if (actualUser === 'buyer & seller') {
+                        window.location.href = 'buyer_and_seller.html';
+                    }
+                }
+            });
         }
     }
 }

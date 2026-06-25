@@ -65,6 +65,10 @@ module.exports = {
             filename: 'verify.html',
             template: './src/verify.html'
         }),
+        new HtmlWebpackPlugin({
+            filename: 'service_provider_profile_setup.html',
+            template: './src/service_provider_profile_setup.html'
+        }),
 
         new MiniCssExtractPlugin({
             filename: "styles.css"
